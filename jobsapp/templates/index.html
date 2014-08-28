@@ -2,28 +2,34 @@
 
 {% block HeadCSS %}
 
+  <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}jobsapp/css/custom.css">
 
 {% endblock %}
 
 
 {% block Content %}
-
-    <div class="site-wrapper">
-
-      <div class="site-wrapper-inner">
-
-        <div class="cover-container">
-
-   
-
-          <div class="mastfoot">
-            <div class="inner">
-             <p>Built with &lt3 in Chicago</p>
-             <p><a href="#">Donate</a></p>
-            </div>
-          </div>
-
-        </div>
-
+    <div class="jumbotron">
+      <div class="container">
+        <p class="top-header">Search for jobs with the US Federal Government!</p>
+        <p>
+          <input id="search" class="form-control" type="text"></input>
+          <a class="btn btn-link">More Options +</a>
+        </p>
+        <p></p>
+        <p><a class="btn btn-primary" role="button">Search »</a></p>
       </div>
+    </div>
+
+
+<div class="container">
+  
+  <div class="mastfoot">
+    <div class="inner">
+      <p>Built with &lt3 in Chicago</p>
+      <p><a href="#">Donate</a></p>
+    </div>
+  </div>
+
+</div>
+
 {% endblock%}
