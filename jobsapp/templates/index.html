@@ -8,19 +8,34 @@
 
 
 {% block Content %}
-    <div class="jumbotron">
-      <div class="container">
-        <p class="top-header">Search for jobs with the US Federal Government!</p>
-        <p>
-          <input id="search" class="form-control" type="text"></input>
-          <a class="btn btn-link">More Options +</a>
-        </p>
-        <p></p>
-        <p><a class="btn btn-primary" role="button">Search »</a></p>
+
+<div class="container">
+   <div class="row">
+      <div class="col-lg-6">
+         <div class="well bs-component">
+            <form class="form-horizontal" action="search" method="post">
+              {% csrf_token %} 
+               <fieldset>
+                  <legend>Search for jobs with the US Federal Government!</legend>
+                  <div class="form-group">
+                     <div class="col-lg-10">
+                        <input type="text" class="form-control" id="inputEmail" placeholder="eg. Nursing">
+                     </div>
+                     <a class="btn btn-link">More Options +</a>
+                  </div>
+                  <div class="form-group">
+                     <div class="form-group">
+                        <div class="col-lg-10 col-lg-offset-2">
+                           <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                     </div>
+               </fieldset>
+            </form>
+            </div>
+         </div>
       </div>
-    </div>
-
-
+   </div>
+</div>
 <div class="container">
   
   <div class="mastfoot">
