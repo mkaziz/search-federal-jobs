@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseRedire
 
 ## Python imports
 import json
+import requests
 
 def createJSONResponse(data):
     response_data = { "success" : True, "data" : data }
@@ -17,5 +18,7 @@ def index(request):
 
 # Create your views here.
 def search(request):
-    return createJSONResponse({})
+    job_response = requests.get("http://api.usa.gov/jobs/search.json?query=nursing")
+    
+    return createJSONResponse(job_response.json())
     return render(request, "index.html")
