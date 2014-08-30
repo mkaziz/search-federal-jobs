@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+
 {% block HeadCSS %}
 
   <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}jobsapp/css/custom.css">
@@ -9,63 +10,11 @@
 
 {% block Content %}
 
-<div class="container">
-   <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
-         <div class="well bs-component">
-            <form class="form-horizontal" action="search" method="post">
-              {% csrf_token %} 
-               <fieldset>
-                  <legend>Search for jobs with the US Federal Government!</legend>
-                  <div class="form-group">
-                    
-                    <div class="col-lg-12">
-                      <input type="text" class="form-control" id="inputQuery" name="query" placeholder="eg. Nursing" value="{{query}}" />
-                      <a class="btn btn-link">More Options +</a>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                     <div class="col-lg-1">
-                        <button type="submit" class="btn btn-primary">Search</button>
-                     </div>
-                  </div>
-               </fieldset>
-            </form>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
+{% include "jobsearch.html" %}
 
-<div class="container">
-  
-    {% for job in data %}
-      <div class="row">
-        <h3><a href="{{job.url}}">{{job.position_title}}</a></h3>
-        <h4>{{job.organization_name}}</h4>
-        <div class="row-fluid">
-          <div class="bordered col-lg-2 col-md-4 col-sm-4 col-xs-12"><b>Locations:</b>
-            {%for location in job.locations%}
-               {% if forloop.last %}
-                    {{ location }}
-                {% else %}
-                    {{ location }}  | 
-                {% endif %}
-            {% endfor %}
-          </div>
-          <div class="bordered col-lg-2 col-md-4 col-sm-4 col-xs-12"><b>Salary Max:</b> {{job.maximum}} {{job.rate_interva_code}}</div>
-          <div class="bordered col-lg-2 col-md-4 col-sm-4 col-xs-12"><b>Salary Min:</b> {{job.minimum}} {{job.rate_interval_code}}</div>
-          <div class="bordered col-lg-2 col-md-4 col-sm-4 col-xs-12"><b>Start Date:</b> {{job.start_date}}</div>
-          <div class="bordered col-lg-2 col-md-4 col-sm-4 col-xs-12"><b>End Date:</b> {{job.end_date}}</div>
-        </div>
-      </div>
-      
-    {% endfor %}
-    
-    
+{% include "searchresults.html" %}
 
-  
-</div>
+
 
 <div class="container">
   <div id="footer" class="col-xs-3 col-xs-offset-5">
