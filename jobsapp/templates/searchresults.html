@@ -1,7 +1,7 @@
 {% load humanize %}
 
 <div class="container">
-  
+    <h2>Top results:</h2>
     {% for job in data %}
       <div class="row searchresult">
         <h3><a href="{{job.url}}" target="_blank">{{job.position_title}}</a></h3>
@@ -26,7 +26,9 @@
     
     {% empty %}
     <div class="row">
-        no results
+        <div class="col-xs-12">
+            <span class="label label-danger">No results returned</span>    
+        </div>
     </div>
     {% endfor %}
 

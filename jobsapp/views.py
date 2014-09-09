@@ -23,4 +23,4 @@ def search(request):
     response_data = job_response.json()
     
     #return createJSONResponse(job_response.json())
-    return render(request, "index.html", { "data": job_response.json(), "query": query })
+    return render(request, "search.html", { "data": job_response.json(), "query": query })
