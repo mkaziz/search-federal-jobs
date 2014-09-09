@@ -4,4 +4,5 @@
 
 .bordered {padding:10px;}
 
-.searchresult:hover { cursor: pointer; background-color: #eee;  }
+.searchresult { padding: 10px; }
+.searchresult:hover { background-color: #eee; }
