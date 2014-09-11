@@ -16,7 +16,9 @@ def index(request):
     #return createJSONResponse({})
     return render(request, "index.html")
 
-# Create your views here.
+def about(request):
+    return render(request, "about.html")
+
 def search(request):
     query = request.POST.get("query")
     job_response = requests.get("http://api.usa.gov/jobs/search.json?query=" + query)

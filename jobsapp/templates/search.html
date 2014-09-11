@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+{% block HeadCSS %}
+
+  <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}jobsapp/css/custom.css">
+
+{% endblock %}
+
+
+{% block Content %}
+
+{% include "jobsearch.html" %}
+
+{% include "searchresults.html" %}
+
+
+{% endblock%}

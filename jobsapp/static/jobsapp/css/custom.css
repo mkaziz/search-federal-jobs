@@ -6,3 +6,6 @@
 
 .searchresult { padding: 10px; }
 .searchresult:hover { background-color: #eee; }
+
+#sample-queries { display: none; padding-left: 15px; }
+#sample-queries ul { font-size: 10pt; color: #777;}
