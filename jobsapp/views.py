@@ -20,7 +20,11 @@ def about(request):
     return render(request, "about.html")
 
 def search(request):
-    query = request.POST.get("query")
+    query = request.GET.get("query")
+    
+    if (query is None or query == ""):
+        return index(request)
+    
     job_response = requests.get("http://api.usa.gov/jobs/search.json?query=" + query)
     response_data = job_response.json()
     
